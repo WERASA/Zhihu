@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lenovo.zhihu">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/zhihu"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.LoginIn" />
+        <activity
+            android:name=".Activities.Question"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".Activities.AskQuestion"
+            android:label="提问" />
+        <activity android:name=".Activities.Change" />
+        <activity android:name=".Activities.AnswerList" />
+        <activity android:name=".Activities.PutAnswer"></activity>
+    </application>
+
+</manifest>

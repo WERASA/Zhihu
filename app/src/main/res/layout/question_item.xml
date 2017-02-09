@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/account"
+        android:id="@+id/userhead"
+        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:id="@+id/username"
+            android:layout_toRightOf="@+id/userhead"
+            android:gravity="center_vertical"
+            android:text="来自x的问题"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dp"/>
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#bfbfbf"
+            android:layout_below="@id/userhead"
+            android:layout_marginTop="10dp"
+            android:id="@+id/line"/>
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/line"
+        android:textColor="#000"
+        android:layout_marginTop="15dp"
+        android:text="这里是问题标题"
+        android:textSize="15sp"
+        android:id="@id/questionTitle"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/questionTitle"
+            android:id="@+id/questions"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/questionData"
+                android:textColor="#4f4f4f"
+                android:text="这里是回答"
+                android:textSize="13sp"
+                android:paddingLeft="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionData"
+                />
+
+
+
+
+        </RelativeLayout>
+        <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/before"
+        android:layout_below="@id/questions"
+        android:id="@+id/agree"
+        android:layout_marginLeft="20dp"/>
+  <TextView
+      android:layout_marginLeft="20dp"
+      android:layout_width="60dp"
+      android:gravity="center"
+      android:layout_height="20dp"
+      android:layout_below="@id/questions"
+      android:textSize="15sp"
+      android:singleLine="true"
+      android:text="212 赞同"
+      android:id="@+id/agreeNumber"
+      android:layout_toRightOf="@id/agree"
+      />
+<ImageView
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:layout_toRightOf="@id/agreeNumber"
+    android:layout_below="@id/questions"
+    android:id="@+id/disagree"
+    android:src="@drawable/disagre"
+    />
+        <TextView
+
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/questions"
+        android:id="@+id/naive"
+        android:layout_toRightOf="@id/disagree"
+        android:text="200反对"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/questions"
+            android:layout_toRightOf="@id/naive"
+            android:text="400 回答"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:id="@+id/answerNumber"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="收藏问题"
+            android:id="@+id/favourite"
+            android:layout_below="@+id/questions"
+            android:layout_toRightOf="@+id/answerNumber"
+            android:layout_toEndOf="@+id/answerNumber" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

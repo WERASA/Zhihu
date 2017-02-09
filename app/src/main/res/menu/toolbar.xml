@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="return"
+        android:icon="@drawable/return1"
+        app:showAsAction="always"
+        android:id="@+id/back"
+        />
+    <item
+        android:title="finish"
+        android:showAsAction="always"
+         android:icon="@drawable/finish"
+        app:showAsAction="always"
+        android:id="@+id/finish">
+
+    </item>
+    <item
+        android:title="question"
+        app:showAsAction="always"
+        android:icon="@drawable/photo"
+        android:id="@+id/chosePhoto"
+        />
+
+</menu>

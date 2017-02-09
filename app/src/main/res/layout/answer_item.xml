@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/account"
+            android:id="@+id/userhead"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:id="@+id/username"
+            android:layout_toRightOf="@+id/userhead"
+            android:gravity="center_vertical"
+            android:text="来自x的回答"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dp"/>
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#bfbfbf"
+            android:layout_below="@id/userhead"
+            android:layout_marginTop="10dp"
+            android:id="@+id/line"/>
+
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/before"
+            android:layout_below="@id/answers"
+            android:id="@+id/agree"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="20dp"
+            android:layout_below="@id/answers"
+            android:textSize="15sp"
+            android:singleLine="true"
+            android:text="212 赞同"
+            android:id="@+id/agreeNumber"
+            android:layout_toRightOf="@id/agree"
+            />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/agreeNumber"
+            android:layout_below="@id/answers"
+            android:id="@+id/disagree"
+            android:src="@drawable/disagre"
+            />
+        <TextView
+
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/answers"
+            android:id="@+id/naive"
+            android:layout_toRightOf="@id/disagree"
+            android:text="200反对"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answers"
+            android:layout_below="@+id/line"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/answerData"
+                android:textColor="#4f4f4f"
+                android:text="这里是回答"
+                android:textSize="13sp"
+                android:paddingLeft="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/answerData"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="采纳回答"
+            android:id="@+id/accept"
+            android:layout_below="@+id/answers"
+            android:layout_toRightOf="@+id/naive"
+            android:layout_toEndOf="@+id/naive" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+    <item
+        android:title="返回主页"
+        android:id="@+id/back"
+        android:icon="@drawable/back"
+        />
+    <item
+        android:id="@+id/question"
+        android:title="提问"
+        android:icon="@drawable/question"/>
+
+
+     <item
+         android:id="@+id/favourite"
+         android:title="我的收藏"
+         android:icon="@drawable/favourite_n"
+        />
+    <item
+        android:title="修改头像"
+        android:icon="@drawable/account"
+        android:id="@+id/change"/>
+   <item
+      android:title="修改密码"
+       android:icon="@drawable/key"
+       android:id="@+id/changekey"/>
+    <item
+        android:icon="@drawable/loginout"
+        android:id="@+id/quit"
+        android:title="退出账号" />
+
+    <group android:checkableBehavior="single">
+
+
+    </group>
+
+</menu>

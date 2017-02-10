@@ -86,7 +86,9 @@ public class Question extends AppCompatActivity  {
 public void refreshData(){
 if (isRefresh){
     refresh.setRefreshing(false);
+    Log.d("a", String.valueOf(myQuestions.size()));
     return;
+
 }
     isRefresh=true;
     refresh.setRefreshing(false);
@@ -196,6 +198,7 @@ public  boolean onCreatOptionsMenu(Menu menu){
         switch (msg.what){
             case 0:
                 QuestionAdapter.refresh(reQuestions);
+                Log.d("data", String.valueOf(reQuestions.size()));
                 isRefresh=false;
             case 1:
                 QuestionAdapter = new RvAdapter(myQuestions,mToken,context);
@@ -215,7 +218,7 @@ public  boolean onCreatOptionsMenu(Menu menu){
            return;
        }
        isRefresh=true;
-     int lastItemId=linearLayoutManager.findLastVisibleItemPosition();
+      int lastItemId=linearLayoutManager.findLastVisibleItemPosition();
        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
            @Override
            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -251,7 +254,9 @@ public  boolean onCreatOptionsMenu(Menu menu){
                     case  R.id.changekey:
                         Intent startChange=new Intent(Question.this,Change.class);
                         startActivity(startChange);
-
+                    case  R.id.favourite:
+                        Intent startFavourite=new Intent(Question.this,FavoriteList.class);
+                        startActivity(startFavourite);
                 }
                 return false;
             }

@@ -45,11 +45,11 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.questionViewHolder
 
     public void refresh(ArrayList<MyQuestion> questions) {
        this.questions.clear();
+        Log.d("mSize", String.valueOf(questions.size()));
         addQuestion(questions);
     }
 public void addQuestion(ArrayList<MyQuestion>questions){
     this.questions.addAll(questions);
-    Log.d("size", String.valueOf(this.questions.size()));
     notifyDataSetChanged();}
 
 

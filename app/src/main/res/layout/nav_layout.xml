@@ -5,11 +5,12 @@
     android:layout_height="180dp"
     android:background="#0080ff">
 
-<ImageView
+<de.hdodenhof.circleimageview.CircleImageView
     android:layout_height="150dp"
     android:layout_width="150dp"
     android:src="@drawable/maccount"
     android:layout_centerInParent="true"
+    android:id="@+id/mAvatar"
    />
 
 

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.lenovo.zhihu.Activities.AnswerList;
 import com.example.lenovo.zhihu.Activities.FavoriteList;
 import com.example.lenovo.zhihu.R;
@@ -73,6 +74,7 @@ public class FavouriteListAdapter extends RecyclerView.Adapter<FavouriteListAdap
         holder.mHead.setImageResource(R.drawable.account);
         holder.naiveNumber.setText(questions.get(position).getNaiveCount() + "反对");
         question = questions.get(position);
+        Glide.with(context).load(question.getUserHeadUrl()).into(holder.mHead);
         Log.d("mSize", String.valueOf(questions.size()));
         if (question.isFavourite) {
             holder.favourite.setText("已收藏该问题");

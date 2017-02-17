@@ -41,6 +41,7 @@ public  JSONArray dataToString(JSONObject jsonObject,String myData){
                 question.setId(jsonObject.getInt("id"));
                 question.isExciting=(jsonObject.getBoolean("is_exciting"));
                 question.isNaive=(jsonObject.getBoolean("is_naive"));
+                 question.setUserHeadUrl(jsonObject.getString("authorAvatar"));
                 myQuestions.add(question);
             }
 

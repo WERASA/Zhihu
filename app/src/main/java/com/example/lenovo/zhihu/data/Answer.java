@@ -14,6 +14,16 @@ public class Answer {
     private  String authorName;
     private  int  authorId;
 
+    public String getUserHeadUrl() {
+        return userHeadUrl;
+    }
+
+    public void setUserHeadUrl(String userHeadUrl) {
+        this.userHeadUrl = userHeadUrl;
+    }
+
+    private   String userHeadUrl;
+
     public int getIsBest() {
         return isBest;
     }

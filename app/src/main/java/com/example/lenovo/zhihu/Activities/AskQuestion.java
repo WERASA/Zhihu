@@ -84,6 +84,11 @@ public void sendQuestion(final String questionData){
                 startActivity(intent);
                 break;
             case R.id.finish:
+                if (mQuestionContent.getText().toString().equals("")|myQuestionTitle.equals("")){
+                    Toast.makeText(this,"标题或内容不能为空",Toast.LENGTH_SHORT).show();
+
+                }
+                else
                     sendQuestion(questionData);
                 break;
         }

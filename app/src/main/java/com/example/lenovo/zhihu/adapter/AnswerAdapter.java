@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.lenovo.zhihu.R;
 import com.example.lenovo.zhihu.Tools.NetWork;
 import com.example.lenovo.zhihu.data.Answer;
@@ -20,6 +21,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by lenovo on 2017/2/6.
@@ -53,6 +56,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerHold
         holder.answerData.setText(answers.get(position).getContent());
         holder.agreeNumber.setText(answers.get(position).getExciting()+"赞同");
         holder.naiveCount.setText(answers.get(position).getNaive()+"反对");
+        Glide.with(context).load(answers.get(position).getUserHeadUrl()).into(holder.mHead);
         answer=answers.get(position);
 
     }
@@ -77,6 +81,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerHold
         TextView userName;
         ImageView naive;
         ImageView agree;
+        CircleImageView mHead;
         TextView accept;
         String resultData;
         public Handler handler=new Handler(){
@@ -139,6 +144,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerHold
             agree=(ImageView)itemView.findViewById(R.id.agree);
             userName=(TextView)itemView.findViewById(R.id.username);
             accept=(TextView)itemView.findViewById(R.id.accept) ;
+            mHead=(CircleImageView)itemView.findViewById(R.id.userhead);
             agree.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -28,6 +28,7 @@ public class LoginIn extends AppCompatActivity {
     TextView loginIn;
     TextView loginResult;
     String returnThing;
+
     Handler setErrorMessage =new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -97,8 +98,10 @@ public void sendLogin(){
                     JSONObject mData=new JSONObject(data);
                     editor.putString("username",mData.getString("username"));
                     editor.putString("mToken",mData.getString("token"));
+                    editor.putString("mAvatar",mData.getString("avatar"));
                     editor.apply();
                     Intent i=new Intent(LoginIn.this,Question.class);
+
                     startActivity(i);
                 } catch (JSONException e) {
                     e.printStackTrace();

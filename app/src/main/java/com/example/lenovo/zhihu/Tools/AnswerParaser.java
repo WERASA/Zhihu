@@ -41,6 +41,7 @@ public class AnswerParaser {
                 answer.isNaive=jsonObject.getBoolean("is_naive");
                 answer.isExitied=jsonObject.getBoolean("is_exciting");
                 answer.setAuthorName(jsonObject.getString("authorName"));
+                answer.setUserHeadUrl(jsonObject.getString("authorAvatar"));
                 answers.add(answer);
                 Log.d("1","ad");
             }

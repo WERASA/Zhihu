@@ -17,10 +17,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.lenovo.zhihu.R;
 import com.example.lenovo.zhihu.Tools.NetWork;
 import com.example.lenovo.zhihu.Tools.QuestionParaser;
@@ -33,6 +38,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Question extends AppCompatActivity  {
   private  DrawerLayout drawerLayout;
     private NavigationView mNavigationView;
@@ -41,6 +48,7 @@ public class Question extends AppCompatActivity  {
     int statusCode;
     String getQuestion;
     String result;
+    CircleImageView mAvatar;
     private SwipeRefreshLayout refresh;
     RecyclerView recyclerView;
     int page=0;
@@ -51,10 +59,19 @@ public class Question extends AppCompatActivity  {
     RvAdapter QuestionAdapter;
     ArrayList<MyQuestion>reQuestions;
     String mToken;
+    String avatar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
+        mToken=sharedPreferences.getString("mToken","");
+        avatar=sharedPreferences.getString("mAvatar","");
+        Log.d("s",avatar);
+
+
+
+
         mNavigationView=(NavigationView)findViewById(R.id.navigation) ;
         refresh=(SwipeRefreshLayout)findViewById(R.id.refresh);
         recyclerView=(RecyclerView)findViewById(R.id.questions);
@@ -64,6 +81,10 @@ public class Question extends AppCompatActivity  {
         setSupportActionBar(toolbar);
         drawerLayout=(DrawerLayout)findViewById(R.id.draw);
 
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = mNavigationView.inflateHeaderView(R.layout.nav_layout);
+        mAvatar=(CircleImageView)view.findViewById(R.id.mAvatar);
+        Glide.with(this).load(avatar).into(mAvatar);
         final ActionBar actionBar=getSupportActionBar();
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -96,8 +117,7 @@ if (isRefresh){
 new Thread(new Runnable() {
     @Override
     public void run() {
-        SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
-        mToken=sharedPreferences.getString("mToken","");
+
         String postData="token="+mToken+"&"+"page=0"+"&count=20";
         String respond= NetWork.post("https://api.caoyue.com.cn/bihu/getQuestionList.php",postData);
         try {
@@ -254,9 +274,20 @@ public  boolean onCreatOptionsMenu(Menu menu){
                     case  R.id.changekey:
                         Intent startChange=new Intent(Question.this,Change.class);
                         startActivity(startChange);
+                        break;
                     case  R.id.favourite:
                         Intent startFavourite=new Intent(Question.this,FavoriteList.class);
                         startActivity(startFavourite);
+                        break;
+                    case R.id.quit:
+                        Intent quit=new Intent(Question.this,Login.class);
+                        startActivity(quit);
+                        break;
+                    case R.id.change:
+                        Intent changeAvatar=new Intent(Question.this,UploadAvatar.class);
+                        startActivity(changeAvatar);
+                        break;
+
                 }
                 return false;
             }

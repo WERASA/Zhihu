@@ -1,5 +1,9 @@
 package com.example.lenovo.zhihu.Tools;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,22 +25,24 @@ import java.net.URL;
 
 public class NetWork {
     String returnThing;
-    public String get(String url,String content){
-        HttpURLConnection connection=null;
-        URL mUrl= null;
+
+    public Image getImage(String url, String content) {
+        HttpURLConnection connection = null;
+        URL mUrl = null;
 
         try {
             mUrl = new URL(url);
-            connection=(HttpURLConnection)mUrl.openConnection();
+            connection = (HttpURLConnection) mUrl.openConnection();
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(8000);
             connection.setReadTimeout(8000);
             int responseCode = connection.getResponseCode();
             if (responseCode == 200) {
 
-                InputStream getMessage= connection.getInputStream();
-                String response = paraseMessage(getMessage);
-                return response;
+                InputStream getMessage = connection.getInputStream();
+
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,30 +51,27 @@ public class NetWork {
                 connection.disconnect();
             }
         }
-      return null;}
+        return null;
+    }
 
 
-
-
-
-    public  static String post(String url,String content)
-    {
-        HttpURLConnection connection=null;
+    public static String post(String url, String content) {
+        HttpURLConnection connection = null;
 
         try {
-            URL mUrl=new URL(url);
-            connection=(HttpURLConnection)mUrl.openConnection();
+            URL mUrl = new URL(url);
+            connection = (HttpURLConnection) mUrl.openConnection();
             connection.setRequestMethod("POST");
             connection.setConnectTimeout(8000);
             connection.setReadTimeout(8000);
             connection.setDoOutput(true);
-            OutputStream out=connection.getOutputStream();
-            String output=content;
+            OutputStream out = connection.getOutputStream();
+            String output = content;
             out.write(output.getBytes());
             out.flush();
             out.close();
-            int respond=connection.getResponseCode();
-            if (respond==200) {
+            int respond = connection.getResponseCode();
+            if (respond == 200) {
                 String mRespond = paraseMessage(connection.getInputStream());
                 return mRespond;
             }
@@ -79,30 +82,33 @@ public class NetWork {
         }
         return null;
     }
-    public  static String paraseMessage(InputStream Message) throws IOException {
-        ByteArrayOutputStream mMessage=new ByteArrayOutputStream();
-        byte[]buffer=new byte[1024];
-        int len =-1;
-        while ((len=Message.read(buffer))!=-1){
-            mMessage.write(buffer,0,len);
+
+    public static String paraseMessage(InputStream Message) throws IOException {
+        ByteArrayOutputStream mMessage = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int len = -1;
+        while ((len = Message.read(buffer)) != -1) {
+            mMessage.write(buffer, 0, len);
         }
         Message.close();
-        String mRespond=mMessage.toString();
+        String mRespond = mMessage.toString();
         mMessage.close();
         return mRespond;
     }
-public static boolean isSuccess(JSONObject jsonObject){
-    try {
-        if (jsonObject.getInt("status")==200)
-        {
-            return true;
+
+
+
+    public static boolean isSuccess(JSONObject jsonObject) {
+        try {
+            if (jsonObject.getInt("status") == 200) {
+                return true;
+
+            } else
+                return false;
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        else
-            return false;
-    } catch (JSONException e) {
-        e.printStackTrace();
+        return false;
     }
-    return false;
-}
 
 }

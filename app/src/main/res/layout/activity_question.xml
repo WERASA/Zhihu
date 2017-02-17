@@ -47,7 +47,7 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         app:menu="@menu/nav_menu"
-        app:headerLayout="@layout/nav_layout"
+
         android:layout_gravity="start"
         android:id="@+id/navigation">
 

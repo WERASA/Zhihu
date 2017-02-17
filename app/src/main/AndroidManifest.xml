@@ -3,6 +3,7 @@
     package="com.example.lenovo.zhihu">
 
     <uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -28,7 +29,11 @@
         <activity android:name=".Activities.AnswerList" />
         <activity android:name=".Activities.PutAnswer" />
         <activity android:name=".Activities.FavoriteList" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Activities.ChangeHead" />
+        <activity android:name=".Activities.UploadAvatar"></activity>
+
+
+
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@ public class MyQuestion {
     private String authorName;
     private String authorAvatarUrlString;
     public boolean isNaive;
+    private   String userHeadUrl;
     public boolean isExciting;
     public boolean isFavourite;
 
@@ -32,6 +33,14 @@ public class MyQuestion {
 
     public boolean isFavourite() {
         return isFavourite;
+    }
+
+    public String getUserHeadUrl() {
+        return userHeadUrl;
+    }
+
+    public void setUserHeadUrl(String userHeadUrl) {
+        this.userHeadUrl = userHeadUrl;
     }
 
     public boolean isExciting() {
